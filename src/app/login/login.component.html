@@ -1,0 +1,18 @@
+<div class="app-login-form">
+    <h2>{{isLogin ? 'Login Form' : 'SignUp Here'}}</h2>
+    <form #authForm="ngForm" (ngSubmit)="OnSubmit()">
+        <div class="form-input">
+            <label>Email Address</label><br>
+            <input type="email" placeholder="Email address" name="email" ngModel required email><br><br>
+        </div>
+        <div class="form-input">
+            <label>Password</label><br>
+            <input type="password" placeholder="Password" name="pass" ngModel required><br><br>
+        </div>
+        <button style="width: 100%; height: 30px; color: white; background-color: black;" 
+            type="submit" [disabled]="authForm.invaid">{{isLogin ? 'Login' : 'SignUp'}}</button><br>
+        <p>{{isLogin ? 'Do not have an account yet?' : 'Already have an account.'}}
+            <button (click)="onSwitchMode()">{{isLogin ? 'Register Here' : 'Login'}}</button>
+        </p>
+    </form>
+</div>

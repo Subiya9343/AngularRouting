@@ -1,0 +1,24 @@
+<div class="containers">
+<div class="container">
+    <h2>All Courses</h2>
+    <div class="course-container">
+    <ng-container class="for" *ngFor="let course of courses">
+            <div class="course-card">
+                <div>
+                    <img src="{{course.image}}" alt="" style="width: 190px; height: 120px;">
+                </div>
+                <div class="course-name"><h5>{{course.name}}</h5></div>
+                <div class="course-description"><p>{{course.description}}</p></div>
+                <div class="details">
+                    <div class="course-type">{{course.type}}</div>
+                    <div class="course-price"><b>Price:</b>${{course.price}}</div>
+                </div>
+                <div class="course-buttons">
+                    <button class="btn btn-buy">Buy Now</button>
+                    <button class="btn btn-show" routerLink="/Courses/Course/{{course.id}}">Show Details</button>
+                </div>
+            </div>
+    </ng-container>
+    </div>
+</div>
+</div>

@@ -1,0 +1,31 @@
+.container{
+    margin: 10px 10px;
+}
+.about-section{
+    text-align: center;
+    margin: 20px 20px;
+}
+.row{
+    display: flex;
+    justify-content: center;
+}
+.column{
+    margin: 10px 20px;
+    padding: 10px 10px;
+    border: 1px solid white;
+    box-shadow: 5px 5px 25px grey;
+}
+img{
+    box-shadow: 5px 5px 10px grey;
+}
+.title{
+    color: gray;
+    padding: 10px 0px;
+}
+.button{
+    color: white;
+    margin: 10px auto;
+    width: 100%;
+    height: 30px;
+    background-color: black;
+}
