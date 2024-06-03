@@ -1,5 +1,8 @@
 <div class="app-login-form">
+    
+    <app-snackbar [errorMessage]="errorMessage" *ngIf="errorMessage">{{ errorMessage }}</app-snackbar>
     <h2>{{isLogin ? 'Login Form' : 'SignUp Here'}}</h2>
+    <app-loader *ngIf="isLoadingg"></app-loader>
     <form #authForm="ngForm" (ngSubmit)="OnSubmit()">
         <div class="form-input">
             <label>Email Address</label><br>
@@ -12,7 +15,7 @@
         <button style="width: 100%; height: 30px; color: white; background-color: black;" 
             type="submit" [disabled]="authForm.invaid">{{isLogin ? 'Login' : 'SignUp'}}</button><br>
         <p>{{isLogin ? 'Do not have an account yet?' : 'Already have an account.'}}
-            <button (click)="onSwitchMode()">{{isLogin ? 'Register Here' : 'Login'}}</button>
+            <button type="button" (click)="onSwitchMode()">{{isLogin ? 'Register Here' : 'Login'}}</button>
         </p>
     </form>
 </div>

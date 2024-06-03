@@ -1,6 +1,5 @@
 import { NgModel } from "@angular/forms";
 import { RouterModule, Routes } from '@angular/router';
-// import { CourseGuardService } from "./Services/course-guard.service";
 
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
@@ -13,6 +12,7 @@ import { LoginComponent } from "./login/login.component";
 import { CanDeactivateGuardService } from "./Services/canDeactivate-guard.service";
 import { HttpClientModule } from "@angular/common/http";
 import { CourseResolveService } from "./Services/course-resolve.service";
+import { CourseGuardService } from "./Services/course-guard.service";
 
 const appRoute: Routes = [
     //{path: '', component: HomeComponent},
@@ -21,10 +21,10 @@ const appRoute: Routes = [
     {path: 'About', component: AboutComponent},
     {path: 'Contact', component: ContactComponent, canDeactivate: [CanDeactivateGuardService]},
     // {path: 'Courses', component: CoursesComponent, canActivate: [CourseGuardService]},
-    {path: 'Courses', component: CoursesComponent},//, resolve: {courses: CourseResolveService}
+    {path: 'Courses' , resolve: {courses: CourseResolveService}, component: CoursesComponent},//, resolve: {courses: CourseResolveService}
     {path: 'Login', component: LoginComponent},
     // {path: 'Courses/Course/:id', component: CourseComponent},
-    {path: 'Courses', children: [       // ,canActivateChild: [CourseGuardService]
+    {path: 'Courses' ,canActivateChild: [CourseGuardService], children: [       // ,canActivateChild: [CourseGuardService]
       {path: 'Course/:id', component: CourseComponent}
     ]},
     {path: '**', component: ErrorComponent}

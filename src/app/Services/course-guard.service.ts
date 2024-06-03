@@ -1,21 +1,21 @@
-// import { Injectable } from "@angular/core";
-// // import { AuthService } from "./auth.service";
-// import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, GuardResult, MaybeAsync, Router, RouterStateSnapshot } from "@angular/router";
+import { Injectable } from "@angular/core";
+import { AuthService } from "./auth.service";
+import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, GuardResult, MaybeAsync, Router, RouterStateSnapshot } from "@angular/router";
 
-// @Injectable()
-// export class CourseGuardService implements CanActivate, CanActivateChild{
+@Injectable()
+export class CourseGuardService implements CanActivate, CanActivateChild{
 
-//     constructor(private authService: AuthService, private route: Router){ }
+    constructor(private authService: AuthService, private route: Router){ }
 
-//     // canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):boolean {
-//     //     if(this.authService.IsAuthenticated()){
-//     //         return true;
-//     //     }else{
-//     //         this.route.navigate(['Login']);
-//     //     }
-//     // }
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):boolean {
+        if(this.authService.IsAuthenticated()){
+            return true;
+        }else{
+            this.route.navigate(['Login']);
+        }
+    }
 
-//     // canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-//     //     return this.canActivate(childRoute, state);
-//     // }
-// }
+    canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+        return this.canActivate(childRoute, state);
+    }
+}

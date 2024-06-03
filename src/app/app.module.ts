@@ -11,12 +11,14 @@ import { CourseComponent } from './courses/course/course.component';
 import { CoursesService } from './Services/courses.service';
 import { FormsModule } from '@angular/forms';
 import { appRouting } from './appRouting.module';
-// import { CourseGuardService } from './Services/course-guard.service';
+import { CourseGuardService } from './Services/course-guard.service';
 import { AuthService } from './Services/auth.service';
 import { LoginComponent } from './login/login.component';
 import { CanDeactivateGuardService } from './Services/canDeactivate-guard.service';
 import { CourseResolveService } from './Services/course-resolve.service';
 import { HttpClientModule } from '@angular/common/http';
+import { LoaderComponent } from './utility/loader/loader.component';
+import { SnackbarComponent } from './utility/snackbar/snackbar.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     ErrorComponent,
     CourseComponent,
-    LoginComponent
+    LoginComponent,
+    LoaderComponent,
+    SnackbarComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,7 @@ import { HttpClientModule } from '@angular/common/http';
     appRouting,
     HttpClientModule
   ],
-  providers: [CoursesService,AuthService,// CourseGuardService,
+  providers: [CoursesService,AuthService,CourseGuardService,
      CanDeactivateGuardService, CourseResolveService],
   bootstrap: [AppComponent]
 })
